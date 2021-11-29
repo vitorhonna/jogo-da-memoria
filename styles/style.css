@@ -16,6 +16,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    user-select: none;
 }
 
 .card {
@@ -43,6 +45,14 @@ body {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 
     backface-visibility: hidden;
+}
+
+.card_front:hover {
+    opacity: 0.9;
+}
+
+.card_back:hover {
+    background-color: hsl(194, 100%, 48%);
 }
 
 .flip {
