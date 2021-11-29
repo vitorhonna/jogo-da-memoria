@@ -52,6 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
         this.classList.toggle("flip");
     }
 
+    function startGame() {
+        Game.init();
+        renderBoard(Game.cards);
+    }
+
     startGame();
-    renderBoard(cards);
 });
