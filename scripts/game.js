@@ -107,4 +107,12 @@ const Game = {
         this.firstCard.flipped = false;
         this.secondCard.flipped = false;
     },
+
+    // Fim de jogo
+
+    checkGameOver: function () {
+        let cardsNotFlipped = this.cards.filter((card) => !card.flipped);
+        // console.log(cardsNotFlipped);
+        return cardsNotFlipped.length == 0;
+    },
 };

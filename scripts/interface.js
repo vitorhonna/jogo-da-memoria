@@ -3,10 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const BACK = "card_back";
     const CARD = "card";
 
+    const gameBoard = document.querySelector("#gameBoard");
+    const gameOverModal = document.querySelector("#gameOver");
+    const restartButton = document.querySelector("#restart");
+
     function renderBoard(cards) {
         // console.log(cards);
-        let gameBoard = document.querySelector("#gameBoard");
-        // console.log(gameBoard);
+        gameBoard.innerHTML = "";
 
         cards.forEach((card) => {
             // console.log(card);
@@ -69,6 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         secondCard.firstElementChild.classList.add("fade");
                     }, 1000);
                     Game.clearSelection();
+                    if (Game.checkGameOver()) {
+                        gameOverModal.style.display = "flex";
+                    }
                 } else {
                     setTimeout(() => {
                         firstCard.classList.remove("flip");
@@ -81,10 +87,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function startGame() {
-        Game.init();
-        renderBoard(Game.cards);
-    }
+    const GameHandler = {
+        startGame: function () {
+            Game.init();
+            renderBoard(Game.cards);
 
-    startGame();
+            restartButton.addEventListener("click", GameHandler.restartGame);
+        },
+
+        restartGame: function () {
+            Game.clearSelection();
+            GameHandler.startGame();
+            gameOverModal.style.display = "none";
+        },
+    };
+
+    GameHandler.startGame();
 });
