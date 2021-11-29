@@ -52,28 +52,31 @@ document.addEventListener("DOMContentLoaded", () => {
         if (Game.selectCard(this.id)) {
             this.classList.add("flip");
 
-            let firstCard = document.querySelector(`#${Game.firstCard.id}`);
-            let secondCard = document.querySelector(`#${Game.secondCard.id}`);
-            console.log(firstCard);
-            console.log(secondCard);
+            if (Game.secondCard) {
+                let firstCard = document.querySelector(`#${Game.firstCard.id}`);
+                let secondCard = document.querySelector(
+                    `#${Game.secondCard.id}`
+                );
 
-            if (Game.checkMatch()) {
-                // console.log("match");
-                setTimeout(() => {
-                    firstCard.firstElementChild.classList.add("match");
-                    secondCard.firstElementChild.classList.add("match");
-                }, 500);
-                setTimeout(() => {
-                    firstCard.firstElementChild.classList.add("fade");
-                    secondCard.firstElementChild.classList.add("fade");
-                }, 1000);
-                Game.clearSelection();
-            } else {
-                setTimeout(() => {
-                    firstCard.classList.remove("flip");
-                    secondCard.classList.remove("flip");
+                if (Game.checkMatch()) {
+                    // console.log("match");
+                    setTimeout(() => {
+                        firstCard.firstElementChild.classList.add("match");
+                        secondCard.firstElementChild.classList.add("match");
+                    }, 500);
+                    setTimeout(() => {
+                        firstCard.firstElementChild.classList.add("fade");
+                        secondCard.firstElementChild.classList.add("fade");
+                    }, 1000);
                     Game.clearSelection();
-                }, 750);
+                } else {
+                    setTimeout(() => {
+                        firstCard.classList.remove("flip");
+                        secondCard.classList.remove("flip");
+                        Game.unflipCards();
+                        Game.clearSelection();
+                    }, 750);
+                }
             }
         }
     }
