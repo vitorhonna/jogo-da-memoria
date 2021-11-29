@@ -47,10 +47,6 @@ body {
     backface-visibility: hidden;
 }
 
-.card_front:hover {
-    opacity: 0.9;
-}
-
 .card_back:hover {
     background-color: hsl(194, 100%, 48%);
 }
@@ -89,7 +85,7 @@ body {
 }
 
 #restart {
-    background-color: gold;
+    background-color: rgb(255, 196, 0);
     padding: 20px;
     font-size: 1rem;
     margin-top: 30px;
@@ -107,4 +103,14 @@ body {
     /* grid-template-columns: repeat(4, 1fr); */
     grid-template: repeat(5, 1fr) / repeat(4, 1fr);
     gap: 20px;
+}
+
+.match {
+    border: 5px solid rgb(255, 196, 0);
+    transition: border 0.5s;
+}
+
+.fade {
+    opacity: 0.5;
+    transition: opacity 0.5s;
 }

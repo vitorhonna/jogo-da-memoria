@@ -52,22 +52,28 @@ document.addEventListener("DOMContentLoaded", () => {
         if (Game.selectCard(this.id)) {
             this.classList.add("flip");
 
+            let firstCard = document.querySelector(`#${Game.firstCard.id}`);
+            let secondCard = document.querySelector(`#${Game.secondCard.id}`);
+            console.log(firstCard);
+            console.log(secondCard);
+
             if (Game.checkMatch()) {
                 // console.log("match");
+                setTimeout(() => {
+                    firstCard.firstElementChild.classList.add("match");
+                    secondCard.firstElementChild.classList.add("match");
+                }, 500);
+                setTimeout(() => {
+                    firstCard.firstElementChild.classList.add("fade");
+                    secondCard.firstElementChild.classList.add("fade");
+                }, 1000);
                 Game.clearSelection();
             } else {
                 setTimeout(() => {
-                    let firstCardView = document.querySelector(
-                        `#${Game.firstCard.id}`
-                    );
-                    let secondCardView = document.querySelector(
-                        `#${Game.secondCard.id}`
-                    );
-
-                    firstCardView.classList.remove("flip");
-                    secondCardView.classList.remove("flip");
+                    firstCard.classList.remove("flip");
+                    secondCard.classList.remove("flip");
                     Game.clearSelection();
-                }, 1000);
+                }, 750);
             }
         }
     }
