@@ -8,6 +8,14 @@ body {
     font-family: "Righteous", "Lucida Sans", "Lucida Sans Regular",
         "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     font-weight: 500;
+
+    height: 100vh;
+
+    background-color: hsl(202, 100%, 90%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
@@ -62,7 +70,7 @@ body {
 
     top: 0;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -78,4 +86,15 @@ body {
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
+}
+
+#gameBoard {
+    /* background-color: teal; */
+    max-width: 700px;
+
+    display: grid;
+    /* grid-template-rows: repeat(5, 1fr); */
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+    gap: 20px;
 }
