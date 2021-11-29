@@ -16,7 +16,7 @@ const Game = {
 
     init: function () {
         Game.createCards();
-        // Game.shuffleCards();
+        Game.shuffleCards();
     },
 
     createCards: function () {
