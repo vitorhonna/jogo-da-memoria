@@ -49,7 +49,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function flipCard() {
         // console.log(this);
-        this.classList.toggle("flip");
+        if (Game.selectCard(this.id)) {
+            this.classList.add("flip");
+
+            if (Game.checkMatch()) {
+                // console.log("match");
+                Game.clearSelection();
+            } else {
+                setTimeout(() => {
+                    let firstCardView = document.querySelector(
+                        `#${Game.firstCard.id}`
+                    );
+                    let secondCardView = document.querySelector(
+                        `#${Game.secondCard.id}`
+                    );
+
+                    firstCardView.classList.remove("flip");
+                    secondCardView.classList.remove("flip");
+                    Game.clearSelection();
+                }, 1000);
+            }
+        }
     }
 
     function startGame() {
