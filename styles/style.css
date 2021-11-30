@@ -1,6 +1,6 @@
 :root {
-    --gap: 20px;
-    --card: 150px;
+    --gap: 15px;
+    --card: 130px;
     --rows: 4;
     --columns: 5;
 }
@@ -134,7 +134,7 @@ footer {
 }
 
 h1 {
-    margin: 50px;
+    margin: 40px 0 40px 0;
     text-align: center;
 }
 
@@ -162,7 +162,7 @@ footer a {
 @media (max-width: 768px) {
     :root {
         --gap: 10px;
-        --card: 130px;
+        --card: 120px;
         --rows: 5;
         --columns: 4;
     }
