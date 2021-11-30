@@ -152,6 +152,13 @@ footer a {
     font-size: 0.8rem;
 }
 
+@media (max-width: 935px) {
+    :root {
+        --rows: 5;
+        --columns: 4;
+    }
+}
+
 @media (max-width: 768px) {
     :root {
         --gap: 10px;
